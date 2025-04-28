@@ -14,6 +14,12 @@
 		"sherindb_password": {
 			"value": ""
 		},
+		"customertabledata_password": {
+			"value": ""
+		},
+		"customerBlobStorage_connectionString": {
+			"value": ""
+		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"value": "db-server-sherin.database.windows.net"
 		},
@@ -30,6 +36,15 @@
 			"value": "new-db-sherin"
 		},
 		"sherindb_properties_typeProperties_userName": {
+			"value": "Sherinsaji126"
+		},
+		"customertabledata_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"customertabledata_properties_typeProperties_database": {
+			"value": "new-db-sherin"
+		},
+		"customertabledata_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
 		},
 		"containerUri": {

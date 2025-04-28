@@ -19,6 +19,14 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
+		"customertabledata_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'customertabledata'"
+		},
+		"customerBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'customerBlobStorage'"
+		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "db-server-sherin.database.windows.net"
@@ -40,6 +48,18 @@
 			"defaultValue": "new-db-sherin"
 		},
 		"sherindb_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sherinsaji126"
+		},
+		"customertabledata_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "db-server-sherin.database.windows.net"
+		},
+		"customertabledata_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "new-db-sherin"
+		},
+		"customertabledata_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		},
@@ -79,6 +99,12 @@
 					"sherindb_password": {
 						"value": "[parameters('sherindb_password')]"
 					},
+					"customertabledata_password": {
+						"value": "[parameters('customertabledata_password')]"
+					},
+					"customerBlobStorage_connectionString": {
+						"value": "[parameters('customerBlobStorage_connectionString')]"
+					},
 					"azuredbsherin_properties_typeProperties_server": {
 						"value": "[parameters('azuredbsherin_properties_typeProperties_server')]"
 					},
@@ -96,6 +122,15 @@
 					},
 					"sherindb_properties_typeProperties_userName": {
 						"value": "[parameters('sherindb_properties_typeProperties_userName')]"
+					},
+					"customertabledata_properties_typeProperties_server": {
+						"value": "[parameters('customertabledata_properties_typeProperties_server')]"
+					},
+					"customertabledata_properties_typeProperties_database": {
+						"value": "[parameters('customertabledata_properties_typeProperties_database')]"
+					},
+					"customertabledata_properties_typeProperties_userName": {
+						"value": "[parameters('customertabledata_properties_typeProperties_userName')]"
 					}
 				}
 			},
