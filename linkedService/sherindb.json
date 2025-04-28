@@ -1,0 +1,17 @@
+{
+	"name": "sherindb",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "db-server-sherin.database.windows.net",
+			"database": "new-db-sherin",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Sherinsaji126",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDJGQUNBMkI3LUI2MkItNDI3RS05MDFCLUI3ODEzNjUwM0FBMl83OTc4OGU0Ni0zZWQ1LTRmMzEtOWUwMS01MTI2ZGQ1NWQ3ZjQiDQp9"
+		}
+	}
+}
