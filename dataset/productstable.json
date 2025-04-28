@@ -1,0 +1,16 @@
+{
+	"name": "productstable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sherindb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "SalesLT",
+			"table": "Product"
+		}
+	}
+}
