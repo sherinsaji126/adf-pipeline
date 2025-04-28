@@ -4,6 +4,33 @@
 	"parameters": {
 		"factoryName": {
 			"value": "adf-demo-sherin"
+		},
+		"azuredbsherin_password": {
+			"value": ""
+		},
+		"sherindb_password": {
+			"value": ""
+		},
+		"BlobStorageforproduct_connectionString": {
+			"value": ""
+		},
+		"azuredbsherin_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"azuredbsherin_properties_typeProperties_database": {
+			"value": "new-db-sherin"
+		},
+		"azuredbsherin_properties_typeProperties_userName": {
+			"value": "Sherinsaji126"
+		},
+		"sherindb_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"sherindb_properties_typeProperties_database": {
+			"value": "new-db-sherin"
+		},
+		"sherindb_properties_typeProperties_userName": {
+			"value": "Sherinsaji126"
 		}
 	}
 }
