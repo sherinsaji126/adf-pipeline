@@ -23,7 +23,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> ProductStream",
-				"ProductStream derive(Markup = ListPrice / StandardCost) ~> CalculateMarkup"
+				"ProductStream derive(Markup = ERROR_FUNCTION('')) ~> CalculateMarkup"
 			]
 		}
 	}
