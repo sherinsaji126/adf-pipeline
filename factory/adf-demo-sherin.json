@@ -1,0 +1,9 @@
+{
+	"name": "adf-demo-sherin",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "16e6d2f4-5d10-4822-8e3c-2a6ca5dc5c03",
+		"tenantId": "4dd7a366-bffd-434d-ad00-bbbee4d2001f"
+	}
+}

@@ -2,7 +2,7 @@
 	"name": "productstable",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "azuredbsherin",
+			"referenceName": "sherindb",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -12,5 +12,6 @@
 			"schema": "SalesLT",
 			"table": "Product"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
