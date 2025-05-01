@@ -11,13 +11,13 @@
 		"azuredbsherin_password": {
 			"value": ""
 		},
-		"sherindb_password": {
+		"customerBlobStorage_connectionString": {
 			"value": ""
 		},
 		"customertabledata_password": {
 			"value": ""
 		},
-		"customerBlobStorage_connectionString": {
+		"sherindb_password": {
 			"value": ""
 		},
 		"azuredbsherin_properties_typeProperties_server": {
@@ -29,15 +29,6 @@
 		"azuredbsherin_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
 		},
-		"sherindb_properties_typeProperties_server": {
-			"value": "db-server-sherin.database.windows.net"
-		},
-		"sherindb_properties_typeProperties_database": {
-			"value": "new-db-sherin"
-		},
-		"sherindb_properties_typeProperties_userName": {
-			"value": "Sherinsaji126"
-		},
 		"customertabledata_properties_typeProperties_server": {
 			"value": "db-server-sherin.database.windows.net"
 		},
@@ -45,6 +36,15 @@
 			"value": "new-db-sherin"
 		},
 		"customertabledata_properties_typeProperties_userName": {
+			"value": "Sherinsaji126"
+		},
+		"sherindb_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"sherindb_properties_typeProperties_database": {
+			"value": "new-db-sherin"
+		},
+		"sherindb_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
 		},
 		"containerUri": {

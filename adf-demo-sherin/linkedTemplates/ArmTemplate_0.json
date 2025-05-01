@@ -15,17 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'azuredbsherin'"
 		},
-		"sherindb_password": {
+		"customerBlobStorage_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'sherindb'"
+			"metadata": "Secure string for 'connectionString' of 'customerBlobStorage'"
 		},
 		"customertabledata_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'customertabledata'"
 		},
-		"customerBlobStorage_connectionString": {
+		"sherindb_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'customerBlobStorage'"
+			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"type": "string",
@@ -39,18 +39,6 @@
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		},
-		"sherindb_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "db-server-sherin.database.windows.net"
-		},
-		"sherindb_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "new-db-sherin"
-		},
-		"sherindb_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Sherinsaji126"
-		},
 		"customertabledata_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "db-server-sherin.database.windows.net"
@@ -60,6 +48,18 @@
 			"defaultValue": "new-db-sherin"
 		},
 		"customertabledata_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sherinsaji126"
+		},
+		"sherindb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "db-server-sherin.database.windows.net"
+		},
+		"sherindb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "new-db-sherin"
+		},
+		"sherindb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		}
@@ -80,12 +80,21 @@
 						"dependsOn": [],
 						"userProperties": [],
 						"typeProperties": {
-							"waitTimeInSeconds": 1
+							"waitTimeInSeconds": {
+								"value": "@pipeline().parameters.waitseconds",
+								"type": "Expression"
+							}
 						}
 					}
 				],
 				"policy": {
 					"elapsedTimeMetric": {}
+				},
+				"parameters": {
+					"waitseconds": {
+						"type": "int",
+						"defaultValue": 2
+					}
 				},
 				"annotations": []
 			},
@@ -127,23 +136,14 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/sherindb')]",
+			"name": "[concat(parameters('factoryName'), '/customerBlobStorage')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureSqlDatabase",
+				"type": "AzureBlobStorage",
 				"typeProperties": {
-					"server": "[parameters('sherindb_properties_typeProperties_server')]",
-					"database": "[parameters('sherindb_properties_typeProperties_database')]",
-					"encrypt": "mandatory",
-					"trustServerCertificate": false,
-					"authenticationType": "SQL",
-					"userName": "[parameters('sherindb_properties_typeProperties_userName')]",
-					"password": {
-						"type": "SecureString",
-						"value": "[parameters('sherindb_password')]"
-					}
+					"connectionString": "[parameters('customerBlobStorage_connectionString')]"
 				}
 			},
 			"dependsOn": []
@@ -171,65 +171,49 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/customerBlobStorage')]",
+			"name": "[concat(parameters('factoryName'), '/sherindb')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "AzureSqlDatabase",
 				"typeProperties": {
-					"connectionString": "[parameters('customerBlobStorage_connectionString')]"
+					"server": "[parameters('sherindb_properties_typeProperties_server')]",
+					"database": "[parameters('sherindb_properties_typeProperties_database')]",
+					"encrypt": "mandatory",
+					"trustServerCertificate": false,
+					"authenticationType": "SQL",
+					"userName": "[parameters('sherindb_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('sherindb_password')]"
+					}
 				}
 			},
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/product')]",
+			"name": "[concat(parameters('factoryName'), '/Json1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "BlobStorageforproduct",
+					"referenceName": "customerBlobStorage",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "DelimitedText",
+				"type": "Json",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "productList.csv",
-						"container": "product"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
+						"fileName": "customer.json",
+						"container": "customer"
+					}
 				},
-				"schema": []
+				"schema": {}
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/BlobStorageforproduct')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/productstable')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "sherindb",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "AzureSqlTable",
-				"schema": [],
-				"typeProperties": {
-					"schema": "SalesLT",
-					"table": "Product"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/sherindb')]"
+				"[concat(variables('factoryId'), '/linkedServices/customerBlobStorage')]"
 			]
 		},
 		{
@@ -318,27 +302,113 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Json1')]",
+			"name": "[concat(parameters('factoryName'), '/product')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "customerBlobStorage",
+					"referenceName": "BlobStorageforproduct",
 					"type": "LinkedServiceReference"
 				},
 				"annotations": [],
-				"type": "Json",
+				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "customer.json",
-						"container": "customer"
-					}
+						"fileName": "productList.csv",
+						"container": "product"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
 				},
-				"schema": {}
+				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/customerBlobStorage')]"
+				"[concat(variables('factoryId'), '/linkedServices/BlobStorageforproduct')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/productstable')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "sherindb",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "AzureSqlTable",
+				"schema": [],
+				"typeProperties": {
+					"schema": "SalesLT",
+					"table": "Product"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/sherindb')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/customerpipeline')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Copy customer",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "AzureSqlSource",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "cutsomertable",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "Json1",
+								"type": "DatasetReference",
+								"parameters": {}
+							}
+						]
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/cutsomertable')]",
+				"[concat(variables('factoryId'), '/datasets/Json1')]"
 			]
 		},
 		{
@@ -410,67 +480,6 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/productstable')]",
 				"[concat(variables('factoryId'), '/datasets/product')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/customerpipeline')]",
-			"type": "Microsoft.DataFactory/factories/pipelines",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"activities": [
-					{
-						"name": "Copy customer",
-						"type": "Copy",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"source": {
-								"type": "AzureSqlSource",
-								"queryTimeout": "02:00:00",
-								"partitionOption": "None"
-							},
-							"sink": {
-								"type": "JsonSink",
-								"storeSettings": {
-									"type": "AzureBlobStorageWriteSettings"
-								},
-								"formatSettings": {
-									"type": "JsonWriteSettings"
-								}
-							},
-							"enableStaging": false
-						},
-						"inputs": [
-							{
-								"referenceName": "cutsomertable",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						],
-						"outputs": [
-							{
-								"referenceName": "Json1",
-								"type": "DatasetReference",
-								"parameters": {}
-							}
-						]
-					}
-				],
-				"policy": {
-					"elapsedTimeMetric": {}
-				},
-				"annotations": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/cutsomertable')]",
-				"[concat(variables('factoryId'), '/datasets/Json1')]"
 			]
 		}
 	]

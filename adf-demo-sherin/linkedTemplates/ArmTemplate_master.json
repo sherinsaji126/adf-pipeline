@@ -15,17 +15,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'azuredbsherin'"
 		},
-		"sherindb_password": {
+		"customerBlobStorage_connectionString": {
 			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'sherindb'"
+			"metadata": "Secure string for 'connectionString' of 'customerBlobStorage'"
 		},
 		"customertabledata_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'customertabledata'"
 		},
-		"customerBlobStorage_connectionString": {
+		"sherindb_password": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'customerBlobStorage'"
+			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"type": "string",
@@ -39,18 +39,6 @@
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		},
-		"sherindb_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "db-server-sherin.database.windows.net"
-		},
-		"sherindb_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "new-db-sherin"
-		},
-		"sherindb_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Sherinsaji126"
-		},
 		"customertabledata_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": "db-server-sherin.database.windows.net"
@@ -60,6 +48,18 @@
 			"defaultValue": "new-db-sherin"
 		},
 		"customertabledata_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sherinsaji126"
+		},
+		"sherindb_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "db-server-sherin.database.windows.net"
+		},
+		"sherindb_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "new-db-sherin"
+		},
+		"sherindb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		},
@@ -96,14 +96,14 @@
 					"azuredbsherin_password": {
 						"value": "[parameters('azuredbsherin_password')]"
 					},
-					"sherindb_password": {
-						"value": "[parameters('sherindb_password')]"
+					"customerBlobStorage_connectionString": {
+						"value": "[parameters('customerBlobStorage_connectionString')]"
 					},
 					"customertabledata_password": {
 						"value": "[parameters('customertabledata_password')]"
 					},
-					"customerBlobStorage_connectionString": {
-						"value": "[parameters('customerBlobStorage_connectionString')]"
+					"sherindb_password": {
+						"value": "[parameters('sherindb_password')]"
 					},
 					"azuredbsherin_properties_typeProperties_server": {
 						"value": "[parameters('azuredbsherin_properties_typeProperties_server')]"
@@ -114,15 +114,6 @@
 					"azuredbsherin_properties_typeProperties_userName": {
 						"value": "[parameters('azuredbsherin_properties_typeProperties_userName')]"
 					},
-					"sherindb_properties_typeProperties_server": {
-						"value": "[parameters('sherindb_properties_typeProperties_server')]"
-					},
-					"sherindb_properties_typeProperties_database": {
-						"value": "[parameters('sherindb_properties_typeProperties_database')]"
-					},
-					"sherindb_properties_typeProperties_userName": {
-						"value": "[parameters('sherindb_properties_typeProperties_userName')]"
-					},
 					"customertabledata_properties_typeProperties_server": {
 						"value": "[parameters('customertabledata_properties_typeProperties_server')]"
 					},
@@ -131,6 +122,15 @@
 					},
 					"customertabledata_properties_typeProperties_userName": {
 						"value": "[parameters('customertabledata_properties_typeProperties_userName')]"
+					},
+					"sherindb_properties_typeProperties_server": {
+						"value": "[parameters('sherindb_properties_typeProperties_server')]"
+					},
+					"sherindb_properties_typeProperties_database": {
+						"value": "[parameters('sherindb_properties_typeProperties_database')]"
+					},
+					"sherindb_properties_typeProperties_userName": {
+						"value": "[parameters('sherindb_properties_typeProperties_userName')]"
 					}
 				}
 			},
