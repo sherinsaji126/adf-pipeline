@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "adf-demo-sherin"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"BlobStorageforproduct_connectionString": {
 			"value": ""
 		},
