@@ -15,7 +15,7 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "CalculateMarkup"
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -23,7 +23,7 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> ProductStream",
-				"ProductStream derive(Markup = ERROR_FUNCTION('')) ~> CalculateMarkup"
+				"ProductStream derive() ~> derivedColumn1"
 			]
 		}
 	}
