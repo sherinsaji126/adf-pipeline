@@ -2,7 +2,7 @@
 	"name": "productstable",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "sherindb",
+			"referenceName": "azuredbsherin",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],

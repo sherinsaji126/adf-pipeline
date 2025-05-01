@@ -1,0 +1,25 @@
+{
+	"name": "dfProductMarkup",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "productstable",
+						"type": "DatasetReference"
+					},
+					"name": "ProductStream"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> ProductStream"
+			]
+		}
+	}
+}
