@@ -13,12 +13,17 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "CalculateMarkup"
+				}
+			],
 			"scriptLines": [
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> ProductStream"
+				"     format: 'table') ~> ProductStream",
+				"ProductStream derive(Markup = ListPrice / StandardCost) ~> CalculateMarkup"
 			]
 		}
 	}
