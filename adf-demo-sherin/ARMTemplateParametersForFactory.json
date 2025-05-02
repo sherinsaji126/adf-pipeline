@@ -41,6 +41,9 @@
 		"sherindb_password": {
 			"value": ""
 		},
+		"TripBlobStorage_connectionString": {
+			"value": ""
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
