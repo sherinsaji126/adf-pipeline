@@ -29,6 +29,9 @@
 		"BlobStorageforproduct_connectionString": {
 			"value": ""
 		},
+		"TripBlobStorage_connectionString": {
+			"value": ""
+		},
 		"azuredbsherin_password": {
 			"value": ""
 		},
@@ -41,7 +44,7 @@
 		"sherindb_password": {
 			"value": ""
 		},
-		"TripBlobStorage_connectionString": {
+		"ADLSGenn2_accountKey": {
 			"value": ""
 		},
 		"ADLSGen2_properties_typeProperties_url": {
@@ -100,6 +103,9 @@
 		},
 		"sherindb_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
+		},
+		"ADLSGenn2_properties_typeProperties_url": {
+			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		}
 	}
 }

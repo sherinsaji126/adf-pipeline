@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BlobStorageforproduct'"
 		},
+		"TripBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripBlobStorage'"
+		},
 		"azuredbsherin_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'azuredbsherin'"
@@ -55,9 +59,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
-		"TripBlobStorage_connectionString": {
+		"ADLSGenn2_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'TripBlobStorage'"
+			"metadata": "Secure string for 'accountKey' of 'ADLSGenn2'"
 		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
@@ -135,6 +139,10 @@
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
 		},
+		"ADLSGenn2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
+		},
 		"containerUri": {
 			"type": "string",
 			"metadata": "URI to storage account containing linked ARM templates"
@@ -186,6 +194,9 @@
 					"BlobStorageforproduct_connectionString": {
 						"value": "[parameters('BlobStorageforproduct_connectionString')]"
 					},
+					"TripBlobStorage_connectionString": {
+						"value": "[parameters('TripBlobStorage_connectionString')]"
+					},
 					"azuredbsherin_password": {
 						"value": "[parameters('azuredbsherin_password')]"
 					},
@@ -198,8 +209,8 @@
 					"sherindb_password": {
 						"value": "[parameters('sherindb_password')]"
 					},
-					"TripBlobStorage_connectionString": {
-						"value": "[parameters('TripBlobStorage_connectionString')]"
+					"ADLSGenn2_accountKey": {
+						"value": "[parameters('ADLSGenn2_accountKey')]"
 					},
 					"ADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"
@@ -257,6 +268,9 @@
 					},
 					"sherindb_properties_typeProperties_userName": {
 						"value": "[parameters('sherindb_properties_typeProperties_userName')]"
+					},
+					"ADLSGenn2_properties_typeProperties_url": {
+						"value": "[parameters('ADLSGenn2_properties_typeProperties_url')]"
 					}
 				}
 			},

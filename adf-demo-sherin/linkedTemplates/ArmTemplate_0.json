@@ -39,6 +39,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'BlobStorageforproduct'"
 		},
+		"TripBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'TripBlobStorage'"
+		},
 		"azuredbsherin_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'azuredbsherin'"
@@ -55,9 +59,9 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
-		"TripBlobStorage_connectionString": {
+		"ADLSGenn2_accountKey": {
 			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'TripBlobStorage'"
+			"metadata": "Secure string for 'accountKey' of 'ADLSGenn2'"
 		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
@@ -134,6 +138,10 @@
 		"sherindb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
+		},
+		"ADLSGenn2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
 		}
 	},
 	"variables": {
@@ -312,6 +320,19 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/TripBlobStorage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('TripBlobStorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/azuredbsherin')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -391,14 +412,18 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/TripBlobStorage')]",
+			"name": "[concat(parameters('factoryName'), '/ADLSGenn2')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"type": "AzureBlobStorage",
+				"type": "AzureBlobFS",
 				"typeProperties": {
-					"connectionString": "[parameters('TripBlobStorage_connectionString')]"
+					"url": "[parameters('ADLSGenn2_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('ADLSGenn2_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -593,34 +618,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/customertabledata')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/product')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "BlobStorageforproduct",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": "productList.csv",
-						"container": "product"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/BlobStorageforproduct')]"
 			]
 		}
 	]
