@@ -1,0 +1,60 @@
+{
+	"name": "dftripdata",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText1",
+						"type": "DatasetReference"
+					},
+					"name": "TripDataCSV"
+				},
+				{
+					"dataset": {
+						"referenceName": "tripdatatable",
+						"type": "DatasetReference"
+					},
+					"name": "TripFaresTable"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "jointrip"
+				}
+			],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> TripDataCSV",
+				"source(output(",
+				"          medallion as string,",
+				"          hack_license as string,",
+				"          vendor_id as string,",
+				"          rate_code as string,",
+				"          store_and_fwd_flag as string,",
+				"          pickup_datetime as string,",
+				"          dropoff_datetime as string,",
+				"          passenger_count as string,",
+				"          trip_time_in_secs as string,",
+				"          trip_distance as string,",
+				"          pickup_longitude as string,",
+				"          pickup_latitude as string,",
+				"          dropoff_longitude as string,",
+				"          dropoff_latitude as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> TripFaresTable",
+				"TripDataCSV join(ERROR_FUNCTION('') == ERROR_FUNCTION(''),",
+				"     joinType:'inner',",
+				"     matchType:'exact',",
+				"     ignoreSpaces: false,",
+				"     broadcast: 'auto')~> jointrip"
+			]
+		}
+	}
+}
