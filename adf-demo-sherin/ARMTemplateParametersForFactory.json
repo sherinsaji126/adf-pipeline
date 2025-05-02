@@ -47,6 +47,18 @@
 		"ADLSGenn2_accountKey": {
 			"value": ""
 		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"FlipkartBlobStorage3_connectionString": {
+			"value": ""
+		},
+		"flipkartBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
+			"value": ""
+		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
