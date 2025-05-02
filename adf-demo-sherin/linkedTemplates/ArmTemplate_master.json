@@ -23,9 +23,17 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
 		},
+		"AzureDataLakeStorage3_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
+		},
 		"AzureSqlDatabase1_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'AzureSqlDatabase1'"
+		},
+		"AzureSqlDatabase2_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
 		},
 		"BlobStorageforproduct_connectionString": {
 			"type": "secureString",
@@ -47,14 +55,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'sherindb'"
 		},
-		"AzureSqlDatabase2_password": {
-			"type": "secureString",
-			"metadata": "Secure string for 'password' of 'AzureSqlDatabase2'"
-		},
-		"AzureDataLakeStorage3_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage3'"
-		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
@@ -64,6 +64,10 @@
 			"defaultValue": "https://sasherin126.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
@@ -78,6 +82,18 @@
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sherinsaji126"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "db-server-sherin.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "taxi-data"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sherinsaji126"
 		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"type": "string",
@@ -114,22 +130,6 @@
 		"sherindb_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sherinsaji126"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_server": {
-			"type": "string",
-			"defaultValue": "db-server-sherin.database.windows.net"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_database": {
-			"type": "string",
-			"defaultValue": "taxi-data"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_userName": {
-			"type": "string",
-			"defaultValue": "Sherinsaji126"
-		},
-		"AzureDataLakeStorage3_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -170,8 +170,14 @@
 					"AzureDataLakeStorage2_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
 					},
+					"AzureDataLakeStorage3_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
+					},
 					"AzureSqlDatabase1_password": {
 						"value": "[parameters('AzureSqlDatabase1_password')]"
+					},
+					"AzureSqlDatabase2_password": {
+						"value": "[parameters('AzureSqlDatabase2_password')]"
 					},
 					"BlobStorageforproduct_connectionString": {
 						"value": "[parameters('BlobStorageforproduct_connectionString')]"
@@ -188,12 +194,6 @@
 					"sherindb_password": {
 						"value": "[parameters('sherindb_password')]"
 					},
-					"AzureSqlDatabase2_password": {
-						"value": "[parameters('AzureSqlDatabase2_password')]"
-					},
-					"AzureDataLakeStorage3_accountKey": {
-						"value": "[parameters('AzureDataLakeStorage3_accountKey')]"
-					},
 					"ADLSGen2_properties_typeProperties_url": {
 						"value": "[parameters('ADLSGen2_properties_typeProperties_url')]"
 					},
@@ -203,6 +203,9 @@
 					"AzureDataLakeStorage2_properties_typeProperties_url": {
 						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
 					},
+					"AzureDataLakeStorage3_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
+					},
 					"AzureSqlDatabase1_properties_typeProperties_server": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_server')]"
 					},
@@ -211,6 +214,15 @@
 					},
 					"AzureSqlDatabase1_properties_typeProperties_userName": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase2_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
 					},
 					"azuredbsherin_properties_typeProperties_server": {
 						"value": "[parameters('azuredbsherin_properties_typeProperties_server')]"
@@ -238,18 +250,6 @@
 					},
 					"sherindb_properties_typeProperties_userName": {
 						"value": "[parameters('sherindb_properties_typeProperties_userName')]"
-					},
-					"AzureSqlDatabase2_properties_typeProperties_server": {
-						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_server')]"
-					},
-					"AzureSqlDatabase2_properties_typeProperties_database": {
-						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_database')]"
-					},
-					"AzureSqlDatabase2_properties_typeProperties_userName": {
-						"value": "[parameters('AzureSqlDatabase2_properties_typeProperties_userName')]"
-					},
-					"AzureDataLakeStorage3_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage3_properties_typeProperties_url')]"
 					}
 				}
 			},

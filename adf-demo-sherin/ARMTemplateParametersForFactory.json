@@ -17,7 +17,13 @@
 		"AzureDataLakeStorage2_accountKey": {
 			"value": ""
 		},
+		"AzureDataLakeStorage3_accountKey": {
+			"value": ""
+		},
 		"AzureSqlDatabase1_password": {
+			"value": ""
+		},
+		"AzureSqlDatabase2_password": {
 			"value": ""
 		},
 		"BlobStorageforproduct_connectionString": {
@@ -35,12 +41,6 @@
 		"sherindb_password": {
 			"value": ""
 		},
-		"AzureSqlDatabase2_password": {
-			"value": ""
-		},
-		"AzureDataLakeStorage3_accountKey": {
-			"value": ""
-		},
 		"ADLSGen2_properties_typeProperties_url": {
 			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
@@ -48,6 +48,9 @@
 			"value": "https://sasherin126.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
 			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
 		"AzureSqlDatabase1_properties_typeProperties_server": {
@@ -58,6 +61,15 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_userName": {
 			"value": "sherinsaji126"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_database": {
+			"value": "taxi-data"
+		},
+		"AzureSqlDatabase2_properties_typeProperties_userName": {
+			"value": "Sherinsaji126"
 		},
 		"azuredbsherin_properties_typeProperties_server": {
 			"value": "db-server-sherin.database.windows.net"
@@ -85,18 +97,6 @@
 		},
 		"sherindb_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_server": {
-			"value": "db-server-sherin.database.windows.net"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_database": {
-			"value": "taxi-data"
-		},
-		"AzureSqlDatabase2_properties_typeProperties_userName": {
-			"value": "Sherinsaji126"
-		},
-		"AzureDataLakeStorage3_properties_typeProperties_url": {
-			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		}
 	}
 }
