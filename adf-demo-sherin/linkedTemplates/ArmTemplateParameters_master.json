@@ -8,7 +8,16 @@
 		"ADLSGen2_accountKey": {
 			"value": ""
 		},
+		"ADLSGenn2_accountKey": {
+			"value": ""
+		},
 		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage2_connectionString": {
+			"value": ""
+		},
+		"AzureBlobStorage3_connectionString": {
 			"value": ""
 		},
 		"AzureDataLakeStorage1_accountKey": {
@@ -29,6 +38,9 @@
 		"BlobStorageforproduct_connectionString": {
 			"value": ""
 		},
+		"FlipkartBlobStorage3_connectionString": {
+			"value": ""
+		},
 		"TripBlobStorage_connectionString": {
 			"value": ""
 		},
@@ -41,25 +53,22 @@
 		"customertabledata_password": {
 			"value": ""
 		},
-		"sherindb_password": {
-			"value": ""
-		},
-		"ADLSGenn2_accountKey": {
-			"value": ""
-		},
-		"AzureBlobStorage2_connectionString": {
-			"value": ""
-		},
-		"FlipkartBlobStorage3_connectionString": {
-			"value": ""
-		},
 		"flipkartBlobStorage_connectionString": {
 			"value": ""
 		},
-		"AzureBlobStorage3_connectionString": {
+		"sherindb_password": {
+			"value": ""
+		},
+		"advWorksDb_password": {
+			"value": ""
+		},
+		"AzureBlobStorage4_connectionString": {
 			"value": ""
 		},
 		"ADLSGen2_properties_typeProperties_url": {
+			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
+		},
+		"ADLSGenn2_properties_typeProperties_url": {
 			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
 		},
 		"AzureDataLakeStorage1_properties_typeProperties_url": {
@@ -116,8 +125,14 @@
 		"sherindb_properties_typeProperties_userName": {
 			"value": "Sherinsaji126"
 		},
-		"ADLSGenn2_properties_typeProperties_url": {
-			"value": "https://newlabstoragesherin.dfs.core.windows.net/"
+		"advWorksDb_properties_typeProperties_server": {
+			"value": "db-server-sherin.database.windows.net"
+		},
+		"advWorksDb_properties_typeProperties_database": {
+			"value": "new-db-sherin"
+		},
+		"advWorksDb_properties_typeProperties_userName": {
+			"value": "sherinsaji126"
 		},
 		"containerUri": {
 			"value": ""
